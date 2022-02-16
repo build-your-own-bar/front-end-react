@@ -26,9 +26,11 @@ function About(props) {
 			);
 	};
 	return (
-		<div className='about-container'>
-			<h3>We always want you to feel like a regular! </h3>
-			<div className='photo-div'>
+		<div className="about-container text-warning">
+			<h3 className="text-warning">
+				We always want you to feel like a regular!{" "}
+			</h3>
+			<div className="photo-div">
 				<div>
 					<a
 						href='https://www.linkedin.com/in/chinsanlim/'
@@ -63,8 +65,8 @@ function About(props) {
 					</a>
 				</div>
 			</div>
-			<div className='about-details'>
-				<p className='about-p'>
+			<div className="about-details text-warning">
+				<p className="about-p">
 					BYOBar was designed by three developers who have a passion for
 					connecting with others and making people feel like they're part of the
 					family. With our app, we are able to give that experience to you, the
@@ -83,13 +85,15 @@ function About(props) {
 					a message!{' '}
 				</p>
 			</div>
-			<form ref={form} onSubmit={sendEmail} className='contact-form'>
+			<hr className="about-line"></hr>
+			<form ref={form} onSubmit={sendEmail} className="contact-form">
 				<label>Name</label>
 				<input
 					type='text'
 					name='from_name'
 					placeholder='Enter your name'
 					required
+					className="form-elements"
 				/>
 				<label>Email</label>
 				<input
@@ -97,15 +101,17 @@ function About(props) {
 					name='reply_to'
 					placeholder='Enter your email'
 					required
+					className="form-elements"
 				/>
 				<label>Message</label>
 				<textarea
-					name='message'
-					rows='5'
-					cols='60'
-					placeholder='Type your message here...'
-					required></textarea>
-				<input type='submit' value='Send' class='btn-primary mt-3' />
+					name="message"
+					rows="5"
+					cols="60"
+					placeholder="Type your message here..."
+					required
+					className="form-elements"></textarea>
+				<input type="submit" value="Send" className="form-elements" />
 			</form>
 		</div>
 	);
