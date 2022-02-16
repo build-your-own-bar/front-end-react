@@ -19,6 +19,7 @@ function App() {
 	const drinkUrl = "https://buildyobar.herokuapp.com/drinks/";
 	const [user, setUser] = useState({});
 	const [drinks, setDrinks] = useState([]);
+	const { pathname } = useLocation();
 
 	const getDrinks = async () => {
 		try {

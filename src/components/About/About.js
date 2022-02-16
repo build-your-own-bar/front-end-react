@@ -26,10 +26,8 @@ function About(props) {
 			);
 	};
 	return (
-		<div>
-			<h3 className="display-5 container">
-				We always want you to feel like a regular!{" "}
-			</h3>
+		<div className="about-container">
+			<h3>We always want you to feel like a regular! </h3>
 			<div className="photo-div">
 				<div>
 					<a

@@ -1,0 +1,24 @@
+.landing-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Montserrat Subrayada", sans-serif;
+}
+
+.landing-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 30%;
+}
+
+.landing-title {
+	font-size: 4rem;
+}
+
+a {
+	text-decoration: none;
+}
