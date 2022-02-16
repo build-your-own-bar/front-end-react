@@ -3,21 +3,23 @@ import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { statesContext } from '../../statesContext';
+import { statesContext } from '../../App';
 import './SignUp.css';
 
 function SignUp(props) {
-	const { drinks, setDrinks, user, setUser } = useContext(statesContext);
+	const { handleSetLoggedIn } = useContext(statesContext);
 	const signUpData = {
 		username: '',
 		email: '',
 		password: '',
 		re_password: '',
 	};
+
 	const navigate = useNavigate();
 	const [signUp, setSignUp] = useState(signUpData);
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
+	const [loginData, setLoginData] = useState(false);
 
 	function handleChange(event) {
 		setSignUp((register) => {
@@ -29,6 +31,10 @@ function SignUp(props) {
 		event.preventDefault();
 
 		if (!error) {
+			const tempLogin = {
+				email: signUp.email,
+				password: signUp.password,
+			};
 			try {
 				const res = await fetch('https://buildyobar.herokuapp.com/users/', {
 					method: 'POST',
@@ -39,7 +45,23 @@ function SignUp(props) {
 				});
 				if (res.status === 201) {
 					setSuccess(true);
-					navigate('/login');
+					const API_ENDPOINT = `https://buildyobar.herokuapp.com/token/login`;
+					const response = await fetch(API_ENDPOINT, {
+						method: 'POST',
+						body: JSON.stringify(tempLogin),
+						headers: {
+							'Content-Type': 'application/json',
+						},
+					});
+					console.log(response);
+					if (response.status === 200) {
+						const data = await response.json();
+						console.log(data);
+						handleSetLoggedIn(data.auth_token);
+						navigate('/menu');
+					} else {
+						setError(true);
+					}
 				}
 			} catch (error) {
 				console.error(error);
