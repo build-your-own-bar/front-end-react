@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# BYOBar -- Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Application Description
 
-## Available Scripts
+### Link to BYOBar Backend Repository:
 
-In the project directory, you can run:
+https://github.com/build-your-own-bar/front-end-react
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- CSS
+- React Bootstrap
+- React Router
+- Axios
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Current Application State
 
-### `npm run build`
+# Future Improvements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Contribution Guidelines
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Identify Bugs
 
-### `npm run eject`
+> If you identify bugs, submit an issue on the Git repo. Please detail the bug in your issue. If you know how to fix it, feel free to note the methods you would use. You could also submit a pull request with suggested code to fix it.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Initial Planning
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## User Stories
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- As a user, I want to be able to save my list of drinks in my profile when I sign in so I can keep track of my favorite concoctions.
+- As a user, I want to be able to create my preferences on a specific cocktail on the menu so the bartender knows how to prepare my drink.
+- As a user, I want to plug in my birthday to see if I’m old enough to enter the site.
+- As a user, I want to be able to see all the created cocktails.
+- As a user, I would like to update and push a cocktail into my own menu.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Stretch:
 
-## Learn More
+- As a user, I would like to view other members’ profiles so I can see their favorite drinks and preferences.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Wireframes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![BYOBar](./planning/BYOBar_drinkcard.png)
+![BYOBar](./planning/BYOBar_homepage.png)
+![BYOBar](./planning/BYOBar_menu.png)
+![BYOBar](./planning/BYOBar_userdrinklist.png)
+![BYOBar](./planning/BYOBar_about.png)
+![BYOBar](./planning/BYOBar_entrymodal.png)
 
-### Code Splitting
+### Unsolved Problems / Major Hurdles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+>
 
-### Analyzing the Bundle Size
+### Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Chinsan Lim (https://github.com/chinsan-lim)
+- Joey Chang (https://github.com/joesphchang)
+- Justin Lombardi (https://github.com/thejustinlombardi)
