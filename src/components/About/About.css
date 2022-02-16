@@ -1,0 +1,32 @@
+.about-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: goldenrod;
+	margin: 40px;
+}
+
+.photo-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.img-about {
+	object-fit: fill;
+	width: 110px;
+	border-radius: 50%;
+	border: 2px solid goldenrod;
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}

@@ -1,9 +1,11 @@
-import { useContext } from 'react';
-import { statesContext } from '../../statesContext';
+import React from 'react';
 
 function DrinkCardDetails(props) {
-    const { drinks, setDrinks, user, setUser } = useContext(statesContext);
-	return <div></div>;
+    return (
+        <div>
+            
+        </div>
+    );
 }
 
 export default DrinkCardDetails;
