@@ -112,15 +112,15 @@ function App() {
 				}}>
 				{pathname !== "/" && <Navigation></Navigation>}
 				<Routes>
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/profile" element={<Profile />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/signup" element={<SignUp />} />
-					<Route path="/menu" element={<Menu />} />
-					<Route path="/menu/:id" element={<DrinkCardDetails />} />
-					<Route path="/createdrink" element={<CreateDrink />} />
-					<Route path="/mydrinks" element={<MyDrinks />} />
+					<Route path='/' element={<LandingPage />} />
+					<Route path='/about' element={<About />} />
+					<Route path='/profile' element={<Profile />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/signup' element={<SignUp />} />
+					<Route path='/menu' element={<Menu />} />
+					<Route path='/menu/:id' element={<DrinkCardDetails />} />
+					<Route path='/createdrink/new' element={<CreateDrink />} />
+					<Route path='/mydrinks' element={<MyDrinks />} />
 				</Routes>
 			</statesContext.Provider>
 		</div>
