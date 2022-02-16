@@ -2,8 +2,11 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { statesContext } from '../../statesContext';
 
 function SignUp(props) {
+  const { drinks, setDrinks, user, setUser } = useContext(statesContext);
 	const signUpData = {
 		username: '',
 		email: '',
@@ -102,6 +105,7 @@ function SignUp(props) {
 			</Form>
 		</div>
 	);
+
 }
 
 export default SignUp;

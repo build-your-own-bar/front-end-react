@@ -1,8 +1,12 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { statesContext } from '../../statesContext';
 
 function Login(props) {
+const { drinks, setDrinks, user, setUser } = useContext(statesContext);
+
 	return (
 		<div>
 			<Form className='d-flex flex-column align-items-center mt-5' >
@@ -23,6 +27,7 @@ function Login(props) {
             <h5 className='text-center mt-5'>Don't have an account? <Link to='/signup'>Register here!</Link></h5>
 		</div>
 	);
+
 }
 
 export default Login;

@@ -1,11 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
+import { statesContext } from '../../statesContext';
 
 function Profile(props) {
-    return (
-        <div>
-            Hello from profile
-        </div>
-    );
+
+	const { drinks, setDrinks, user, setUser } = useContext(statesContext);
+	return <div></div>;
+
 }
 
 export default Profile;
