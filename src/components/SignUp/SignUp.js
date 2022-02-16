@@ -11,9 +11,9 @@ function SignUp(props) {
 		username: "",
 		email: "",
 		password: "",
-		confirm_password: "",
+		re_password: "",
 	};
-	const { navigate } = useNavigate();
+	const  navigate  = useNavigate();
 	const [signUp, setSignUp] = useState(signUpData);
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
@@ -26,25 +26,28 @@ function SignUp(props) {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		try {
-			const res = await fetch("https://buildyobar.herokuapp.com/users/", {
+		
+		if (!error) {
+			try {
+				const res = await fetch("https://buildyobar.herokuapp.com/users/", {
 				method: "POST",
 				body: JSON.stringify(signUp),
 				headers: {
 					"Content-Type": "application/json",
 				},
-			});
-			if (res.status === 201) {
+				});
+				if (res.status === 201) {
 				setSuccess(true);
 				navigate("/login");
-			}
-		} catch (error) {
+				}
+			} catch (error) {
 			console.error(error);
+			}
 		}
 	}
 
 	const passwordMatch = (event) => {
-		if (signUp.password !== signUp.confirm_password) {
+		if (signUp.password !== signUp.re_password) {
 			setError(true);
 		} else {
 			setError(false);
@@ -63,7 +66,7 @@ function SignUp(props) {
 						type="text"
 						name="username"
 						value={signUp.username}
-						handleChange={handleChange}
+						onChange={handleChange}
 					/>
 				</Form.Group>
 				<Form.Group className='mb-3 w-50 mx-auto' controlId='formBasicEmail'>
@@ -73,7 +76,7 @@ function SignUp(props) {
 						name="email"
 						placeholder="Enter email"
 						value={signUp.email}
-						handleChange={handleChange}
+						onChange={handleChange}
 					/>
 				</Form.Group>
 				<Form.Group className='mb-3 w-50 mx-auto' controlId='formBasicPassword'>
@@ -83,17 +86,17 @@ function SignUp(props) {
 						name="password"
 						placeholder="Password"
 						value={signUp.password}
-						handleChange={handleChange}
+						onChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group controlId='confirm_password' className='mb-3 w-50'>
+				<Form.Group controlId='re_password' className='mb-3 w-50'>
 					<Form.Label>Confirm Password: </Form.Label>
 					<Form.Control
 						required
 						type="password"
-						name="confirm_password"
+						name="re_password"
 						value={signUp.confirm_password}
-						handleChange={handleChange}
+						onChange={handleChange}
 						onBlur={passwordMatch}
 					/>
 				</Form.Group>
