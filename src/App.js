@@ -1,16 +1,16 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import { Navigation } from './components/Navigation/Navigation';
-import { LandingPage } from './components/LandingPage/LandingPage';
-import { Menu } from './components/Menu/Menu';
-import { About } from './components/About/About';
-import { Profile } from './components/Profile/Profile';
-import { Login } from './components/Login/Login';
-import { SignUp } from './components/SignUp/SignUp';
-import { DrinkCardDetails } from './components/DrinkCardDetails/DrinkCardDetails';
-import { CreateDrink } from './components/CreateDrink/CreateDrink';
-import { MyDrinks } from './components/MyDrinks/MyDrinks';
+import  Navigation  from './components/Navigation/Navigation';
+import LandingPage from './components/LandingPage/LandingPage';
+import Menu from './components/Menu/Menu';
+import About from './components/About/About';
+import Profile from './components/Profile/Profile';
+import Login from './components/Login/Login';
+import SignUp from './components/SignUp/SignUp';
+import DrinkCardDetails from './components/DrinkCardDetails/DrinkCardDetails';
+import CreateDrink from './components/CreateDrink/CreateDrink';
+import MyDrinks from './components/MyDrinks/MyDrinks';
 
 function App() {
 	const [user, setUser] = useState({});
