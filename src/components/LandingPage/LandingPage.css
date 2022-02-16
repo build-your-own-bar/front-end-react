@@ -19,6 +19,11 @@
 	font-size: 4rem;
 }
 
-a {
+.landing-moto {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.landing-enter {
 	text-decoration: none;
 }

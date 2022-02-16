@@ -11,10 +11,16 @@ function LandingPage(props) {
 					BYOBar
 				</h2>
 
-				<h3 className="animate__animated animate__fadeInUp animate__delay-2s">
+				<h3 className="animate__animated animate__fadeInUp animate__delay-2s landing-moto">
 					Where you always feel like a regular
 				</h3>
-				<Link to="/menu">Enter if you're 21 or older here!</Link>
+				<div>
+					<Link
+						to="/menu"
+						className="landing-enter text-warning animate__animated animate__fadeInUp animate__delay-4s">
+						Enter Here!
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
