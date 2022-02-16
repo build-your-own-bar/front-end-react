@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
+import "./About.css";
+
 function About(props) {
 	const form = useRef();
 
@@ -63,7 +65,27 @@ function About(props) {
 					</a>
 				</div>
 			</div>
-			<form ref={form} onSubmit={sendEmail}>
+			<div className="about-details">
+				<p className="about-p">
+					BYOBar was designed by three developers who have a passion for
+					connecting with others and making people feel like they're part of the
+					family. With our app, we are able to give that experience to you, the
+					user, and you are always able to show off your style and preferences
+					in cocktail form!
+				</p>
+				<p className="about-p">
+					Simply go to our 'Menu' tab and search through a collection of classic
+					and custom made drinks. Does a recipe fit your liking? Add it to your
+					drink list. Do you need to make modifications? Create your own version
+					and add it to your drink list. You can then share all of your best
+					cocktail ideas with your friends!
+				</p>
+				<p className="about-p">
+					Want to connect? Click on our pictures above OR click below to send us
+					a message!{" "}
+				</p>
+			</div>
+			<form ref={form} onSubmit={sendEmail} className="contact-form">
 				<label>Name</label>
 				<input
 					type="text"
