@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from "./components/Navigation/Navigation";
 import LandingPage from "./components/LandingPage/LandingPage";
@@ -38,7 +38,8 @@ function App() {
 	return (
 		<div className="App">
 			<statesContext.Provider value={{ drinks, setDrinks, user, setUser }}>
-				<Navigation></Navigation>
+				{pathname !== "/" && <Navigation></Navigation>}
+
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/about" element={<About />} />
