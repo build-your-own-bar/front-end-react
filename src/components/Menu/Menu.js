@@ -11,11 +11,14 @@ function Menu() {
 
 	return (
 		<div>
-			<div className='drinkContainer'>
-				<div className='text-center mt-3'>
-				<Link to='/createdrink/new'>
-					<Button className='primary text-center'>Create a drink</Button>
-				</Link>
+			<div>
+				<h2 className='text-warning text-center'>Our Menu</h2>
+				<div className='drinkContainer'>
+					<div className='text-center mt-3'>
+						<Link to='/createdrink/new'>
+							<Button className='primary text-center'>Create a drink</Button>
+						</Link>
+					</div>
 				</div>
 				<Row>
 					{drinks &&

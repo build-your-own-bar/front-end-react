@@ -1,14 +1,69 @@
 import { useContext } from 'react';
-import { statesContext } from '../../statesContext';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { statesContext } from '../../App';
+import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 function CreateDrink(props) {
-	const { drinks, setDrinks, user, setUser } = useContext(statesContext);
+	const { drinks, setDrinks, user, setUser, userInfo, loggedIn } = useContext(statesContext);
+	const drinkData = {
+		name: '',
+		ice: '',
+		spirit: '',
+		liqueur: '',
+		juice: '',
+		garnish: '',
+		citrus: '',
+		soda: '',
+		special_request: '',
+		photo: '',
+	};
+	
+	const navigate = useNavigate();
+	const [newDrink, setNewDrink] = useState(drinkData);
+
+	function handleChange(event) {
+		setNewDrink((newDrinks) => {
+			return { ...newDrinks, [event.target.id]: event.target.value };
+		});
+	}
+
+	function handlePhotoUpload(event) {
+		setNewDrink((newPhoto) => {
+			return { ...newPhoto, photo: event.target.files[0] };
+		});
+	}
+
+	async function createDrink(event) {
+		event.preventDefault();
+		const data = new FormData(event.target);
+		try {
+			const res = await fetch('https://buildyobar.herokuapp.com/drinks/', {
+				method: 'POST',
+				body: data,
+				headers: {
+					Authorization: `Token ${localStorage.getItem('token')}`,
+				},
+			});
+			console.log(res);
+			if (res.status === 201) {
+				
+				navigate('/menu');
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
+	if (!loggedIn) {
+		return <Navigate to='/login'/>
+	}
 	return (
 		<div>
 			<h2 className='text-center text-warning mt-3'>New Cocktail</h2>
 			<div className='w-75 p-3 mx-auto'>
-				<Form encType='multipart/form-data'>
+				<Form onSubmit={createDrink} encType='multipart/form-data'>
 					<Form.Group controlId='name'>
 						<Form.Label className='text-warning'>Name</Form.Label>
 						<Form.Control required autoFocus type='text' name='name' />
@@ -50,7 +105,8 @@ function CreateDrink(props) {
 						<Form.Control
 							type='file'
 							name='photo'
-							accept='image/*'></Form.Control>
+							accept='image/*'
+							onChange={handlePhotoUpload}></Form.Control>
 					</Form.Group>
 					<div className='text-center'>
 						<Button className='mt-4' type='submit'>
