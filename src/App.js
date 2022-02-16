@@ -47,7 +47,7 @@ function App() {
 					<Route path='/signup' element={<SignUp />} />
 					<Route path='/menu' element={<Menu />} />
 					<Route path='/menu/:id' element={<DrinkCardDetails />} />
-					<Route path='/createdrink' element={<CreateDrink />} />
+					<Route path='/createdrink/new' element={<CreateDrink />} />
 					<Route path='/mydrinks' element={<MyDrinks />} />
 				</Routes>
 			</statesContext.Provider>
