@@ -56,8 +56,8 @@ function SignUp(props) {
 			<Form
 				className="d-flex flex-column align-items-center mt-5"
 				onSubmit={handleSubmit}>
-				<Form.Group controlId="username" className="mb-3 w-50">
-					<Form.Label>Username</Form.Label>
+				<Form.Group controlId='username' className='mb-3 w-50'>
+					<Form.Label>Username: </Form.Label>
 					<Form.Control
 						required
 						type="text"
@@ -66,8 +66,8 @@ function SignUp(props) {
 						handleChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group className="mb-3 w-50 mx-auto" controlId="formBasicEmail">
-					<Form.Label>Email address</Form.Label>
+				<Form.Group className='mb-3 w-50 mx-auto' controlId='formBasicEmail'>
+					<Form.Label>Email address: </Form.Label>
 					<Form.Control
 						type="email"
 						name="email"
@@ -76,8 +76,8 @@ function SignUp(props) {
 						handleChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group className="mb-3 w-50 mx-auto" controlId="formBasicPassword">
-					<Form.Label>Password</Form.Label>
+				<Form.Group className='mb-3 w-50 mx-auto' controlId='formBasicPassword'>
+					<Form.Label>Password: </Form.Label>
 					<Form.Control
 						type="password"
 						name="password"
@@ -86,8 +86,8 @@ function SignUp(props) {
 						handleChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group controlId="confirm_password" className="mb-3 w-50">
-					<Form.Label>Confirm Password</Form.Label>
+				<Form.Group controlId='confirm_password' className='mb-3 w-50'>
+					<Form.Label>Confirm Password: </Form.Label>
 					<Form.Control
 						required
 						type="password"
