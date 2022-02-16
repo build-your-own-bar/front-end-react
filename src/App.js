@@ -108,6 +108,7 @@ function App() {
 					userInfo,
 					handleSetLoggedIn,
 					baseUrl,
+					handleLogout,
 				}}>
 				{pathname !== "/" && <Navigation></Navigation>}
 				<Routes>
