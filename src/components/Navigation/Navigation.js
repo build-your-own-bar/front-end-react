@@ -1,12 +1,13 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './Navigation.css';
 
 function Navigation(props) {
 	return (
 		<Navbar bg="dark" expand="lg" collapseOnSelect={true}>
 			<Container>
-				<Navbar.Brand as={Link} to="/" className="text-warning">
+				<Navbar.Brand as={Link} to="/" className="nav-title">
 					BYOBar
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
