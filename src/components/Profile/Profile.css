@@ -1,0 +1,9 @@
+.profile-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin: 20px;
+	margin-top: 100px;
+	min-height: 90vh;
+}

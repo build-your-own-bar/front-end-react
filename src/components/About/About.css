@@ -1,0 +1,41 @@
+.about-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 40px;
+}
+
+.photo-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.img-about {
+	object-fit: fill;
+	width: 110px;
+	border-radius: 50%;
+	border: 2px solid goldenrod;
+}
+
+.about-details {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+
+.form-elements {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}

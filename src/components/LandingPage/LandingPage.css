@@ -1,0 +1,41 @@
+.landing-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Montserrat Subrayada", sans-serif;
+}
+
+.landing-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	margin-top: 800px;
+}
+
+.landing-title {
+	font-size: 4rem;
+}
+
+.landing-moto {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	font-size: 1rem;
+}
+
+.landing-enter {
+	text-decoration: none;
+}
+
+.btn-landing {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.solo-buttons {
+	margin: 10px;
+	margin-bottom: 20px;
+}
