@@ -70,26 +70,6 @@ function DrinkCardDetails(props) {
 		}
 	};
 
-	const deleteComment = async () => {
-		try {
-			const res = await fetch(
-				`https://buildyobar.herokuapp.com/comments/${id}`,
-				{
-					method: 'DELETE',
-					headers: {
-						Authorization: `Token ${localStorage.getItem('token')}`,
-					},
-				}
-			);
-			console.log(res);
-			if (res.status === 204) {
-				navigate(`/menu/${id}`);
-			}
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
 	const handleChange = (event) => {
 		setNewComment({ ...newComment, [event.target.name]: event.target.value });
 	};
@@ -131,12 +111,15 @@ function DrinkCardDetails(props) {
 						Special Request: {drink.special_request}
 					</h4>
 					<div className='mb-2'>
-					<Link to={`/menu/${id}/edit`}>
-						<Button className='btn-sm'>Update</Button>
-					</Link>
-					<Button variant='danger' onClick={handleShow} className='mx-3 btn-sm'>
-						Delete
-					</Button>
+						<Link to={`/menu/${id}/edit`}>
+							<Button className='btn-sm'>Update</Button>
+						</Link>
+						<Button
+							variant='danger'
+							onClick={handleShow}
+							className='mx-3 btn-sm'>
+							Delete
+						</Button>
 					</div>
 					<Modal show={show} onHide={handleClose}>
 						<Modal.Header closeButton>
@@ -200,13 +183,9 @@ function DrinkCardDetails(props) {
 									<span className='text-danger'>Comment:</span> {comment.body}
 								</p>
 								<div className='btn-div'>
-									<Button className='mx-3 btn-info'>Edit</Button>
-									<Button
-										onClick={deleteComment}
-										variant='danger'
-										className='btn-sm'>
-										Delete
-									</Button>
+									<Link to={`/menu/${id}/comments/${comment.id}`}>
+										<Button className='btn-secondary'>Edit Comment</Button>
+									</Link>
 								</div>
 							</div>
 						);
