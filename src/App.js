@@ -12,6 +12,7 @@ import SignUp from "./components/SignUp/SignUp";
 import DrinkCardDetails from "./components/DrinkCardDetails/DrinkCardDetails";
 import CreateDrink from "./components/CreateDrink/CreateDrink";
 import MyDrinks from "./components/MyDrinks/MyDrinks";
+import UpdateDrink from "./components/UpdateDrink/UpdateDrink";
 
 // import { statesContext } from './statesContext';
 export const statesContext = createContext("");
