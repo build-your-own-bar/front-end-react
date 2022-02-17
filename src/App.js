@@ -15,6 +15,7 @@ import DrinkCardDetails from "./components/DrinkCardDetails/DrinkCardDetails";
 import CreateDrink from "./components/CreateDrink/CreateDrink";
 import MyDrinks from "./components/MyDrinks/MyDrinks";
 import UpdateDrink from "./components/UpdateDrink/UpdateDrink";
+import Footer from "./components/Footer/Footer";
 
 export const statesContext = createContext("");
 
@@ -130,6 +131,7 @@ function App() {
 					<Route path="/menu/:id/edit" element={<UpdateDrink />} />
 				</Routes>
 			</statesContext.Provider>
+			{pathname !== "/" && <Footer />}
 		</div>
 	);
 }
