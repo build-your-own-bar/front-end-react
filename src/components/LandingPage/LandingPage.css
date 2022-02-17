@@ -22,8 +22,20 @@
 .landing-moto {
 	margin-top: 20px;
 	margin-bottom: 40px;
+	font-size: 1rem;
 }
 
 .landing-enter {
 	text-decoration: none;
+}
+
+.btn-landing {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.solo-buttons {
+	margin: 10px;
+	margin-bottom: 20px;
 }

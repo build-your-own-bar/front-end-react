@@ -2,27 +2,38 @@
 
 ## Application Description
 
+> BYOBar was designed by three developers who have a passion for connecting with others and making people feel like they're part of the family. With our app, we are able to give that experience to you, the user, and you are always able to show off your style and preferences in cocktail form!
+
 ### Link to BYOBar Backend Repository:
 
-https://github.com/build-your-own-bar/front-end-react
+https://github.com/build-your-own-bar/build-your-own-bar-backend
 
 ## Technologies Used
 
 - React
 - CSS
+- Animate.css
+- Material UI
+- Email JS
 - React Bootstrap
 - React Router
 - Axios
 
 ## Installation
 
-1.
+1. Fork and clone this repo to your local machine
+2. In your terminal, `cd` into the project directory
+3. Run `npm i` to install dependencies
+4. Open your code editor with `code .`
+5. Run `npm start` to run the frontend locally
 
 ## Current Application State
 
 # Future Improvements
 
--
+- We would like to add a feature that allows you to visit other member profiles so you can see their drink list.
+- We would like to add a favorites feature that allows a user to choose their favorite drinks and lets them view them whenever they're signed in.
+- We would also like to finish our Agnular version of this!
 
 # Contribution Guidelines
 
@@ -31,6 +42,8 @@ https://github.com/build-your-own-bar/front-end-react
 > If you identify bugs, submit an issue on the Git repo. Please detail the bug in your issue. If you know how to fix it, feel free to note the methods you would use. You could also submit a pull request with suggested code to fix it.
 
 # Initial Planning
+
+https://trello.com/b/q1Q4pewQ/byob
 
 ## User Stories
 
@@ -55,7 +68,7 @@ Stretch:
 
 ### Unsolved Problems / Major Hurdles
 
->
+> The biggest hurdle we faced was getting the Comment section of each drink to work the way we wanted it to. We had some strange interactions with our backend and spent the most time debugging this. We did end up fixing it though!
 
 ### Contributors
 
