@@ -63,7 +63,27 @@ function DrinkCardDetails(props) {
 			if (res.status === 200) {
 				const data = await res.json();
 				console.log(data);
-				// navigate(`/menu/${id}`);
+				navigate(`/menu/${id}`);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const deleteComment = async () => {
+		try {
+			const res = await fetch(
+				`https://buildyobar.herokuapp.com/comments/${id}`,
+				{
+					method: 'DELETE',
+					headers: {
+						Authorization: `Token ${localStorage.getItem('token')}`,
+					},
+				}
+			);
+			console.log(res);
+			if (res.status === 204) {
+				navigate(`/menu/${id}`);
 			}
 		} catch (error) {
 			console.error(error);
@@ -110,12 +130,14 @@ function DrinkCardDetails(props) {
 					<h4 className='text-area'>
 						Special Request: {drink.special_request}
 					</h4>
+					<div className='mb-2'>
 					<Link to={`/menu/${id}/edit`}>
-						<Button>Update</Button>
+						<Button className='btn-sm'>Update</Button>
 					</Link>
-					<Button variant='danger' onClick={handleShow}>
+					<Button variant='danger' onClick={handleShow} className='mx-3 btn-sm'>
 						Delete
 					</Button>
+					</div>
 					<Modal show={show} onHide={handleClose}>
 						<Modal.Header closeButton>
 							<Modal.Title>Are you sure you want to delete?</Modal.Title>
@@ -131,41 +153,64 @@ function DrinkCardDetails(props) {
 					</Modal>
 				</div>
 			</div>
+			<Form onSubmit={handleSubmit}>
+				<Form.Group className='mb-3 text-center' controlId='title'>
+					<Form.Label className='text-warning'>Title</Form.Label>
+					<Form.Control
+						name='title'
+						type='text'
+						placeholder='Comment title'
+						value={newComment.title}
+						onChange={handleChange}
+						className='mx-auto w-75'
+					/>
+				</Form.Group>
+				<Form.Group className='mb-3 text-center' controlId='body'>
+					<Form.Label className='text-warning'>Comment</Form.Label>
+					<Form.Control
+						name='body'
+						as='textarea'
+						rows={3}
+						value={newComment.body}
+						onChange={handleChange}
+						className='mx-auto w-75'
+						placeholder='What are you thinking?'
+					/>
+				</Form.Group>
+				<div className='text-center mb-4'>
+					<Button type='submit'>Comment</Button>
+				</div>
+			</Form>
 			<div className='details-container'>
 				<div>
-					<h3 className='comment-title text-warning'>Comments</h3>
+					<h2 className='comment-title text-warning'>Comments</h2>
 					{drink.comments.map((comment) => {
 						return (
 							<div key={comment.id} className='comment-container'>
-								<h3>{comment.title}</h3>
-								<h4>{comment.owner}</h4>
-								<p>{comment.body}</p>
+								<div className='title-container'>
+									<h3>
+										<span className='text-danger'>Title:</span> {comment.title}
+									</h3>
+									<h4>
+										<span className='text-danger'>Username:</span>{' '}
+										{comment.owner}
+									</h4>
+								</div>
+								<p className='comment-text'>
+									<span className='text-danger'>Comment:</span> {comment.body}
+								</p>
+								<div className='btn-div'>
+									<Button className='mx-3 btn-info'>Edit</Button>
+									<Button
+										onClick={deleteComment}
+										variant='danger'
+										className='btn-sm'>
+										Delete
+									</Button>
+								</div>
 							</div>
 						);
 					})}
-					<Form onSubmit={handleSubmit}>
-						<Form.Group className='mb-3' controlId='title'>
-							<Form.Label className='text-warning'>Title</Form.Label>
-							<Form.Control
-								name='title'
-								type='text'
-								placeholder='Comment title'
-								value={newComment.title}
-								onChange={handleChange}
-							/>
-						</Form.Group>
-						<Form.Group className='mb-3' controlId='body'>
-							<Form.Label className='text-warning'>Comment</Form.Label>
-							<Form.Control
-								name='body'
-								as='textarea'
-								rows={3}
-								value={newComment.body}
-								onChange={handleChange}
-							/>
-						</Form.Group>
-						<Button type='submit'>Comment</Button>
-					</Form>
 				</div>
 			</div>
 		</>
