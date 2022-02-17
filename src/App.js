@@ -16,6 +16,7 @@ import CreateDrink from "./components/CreateDrink/CreateDrink";
 import MyDrinks from "./components/MyDrinks/MyDrinks";
 import UpdateDrink from "./components/UpdateDrink/UpdateDrink";
 import Footer from "./components/Footer/Footer";
+import CommentForm from "./components/CommentForm/CommentForm";
 
 export const statesContext = createContext("");
 
@@ -129,6 +130,7 @@ function App() {
 					<Route path="/createdrink/new" element={<CreateDrink />} />
 					<Route path="/mydrinks" element={<MyDrinks />} />
 					<Route path="/menu/:id/edit" element={<UpdateDrink />} />
+					<Route path='/menu/:id/comments/:id' element={<CommentForm />} />
 				</Routes>
 			</statesContext.Provider>
 			{pathname !== "/" && <Footer />}

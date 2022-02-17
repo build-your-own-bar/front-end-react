@@ -45,7 +45,7 @@ function UpdateDrink(props) {
 
 	useEffect(() => {
 		getDrinkDetail();
-	}, [])
+	}, []);
 
 	if (!drink) {
 		return null;
