@@ -21,6 +21,7 @@ function App() {
 	const drinkUrl = "https://buildyobar.herokuapp.com/drinks/";
 	const [user, setUser] = useState(false);
 	const [drinks, setDrinks] = useState(false);
+	const [userId, setUserId] = useState(false);
 	const { pathname } = useLocation();
 
 	const [loggedIn, setLoggedIn] = useState(
@@ -49,6 +50,7 @@ function App() {
 				return;
 			} else {
 				setUserInfo(data);
+				setUserId(data.id);
 				setLoggedIn(true);
 				return;
 			}
@@ -109,18 +111,20 @@ function App() {
 					handleSetLoggedIn,
 					baseUrl,
 					handleLogout,
+					userId,
 				}}>
 				{pathname !== "/" && <Navigation></Navigation>}
 				<Routes>
-					<Route path='/' element={<LandingPage />} />
-					<Route path='/about' element={<About />} />
-					<Route path='/profile' element={<Profile />} />
-					<Route path='/login' element={<Login />} />
-					<Route path='/signup' element={<SignUp />} />
-					<Route path='/menu' element={<Menu />} />
-					<Route path='/menu/:id' element={<DrinkCardDetails />} />
-					<Route path='/createdrink/new' element={<CreateDrink />} />
-					<Route path='/mydrinks' element={<MyDrinks />} />
+					<Route path="/" element={<LandingPage />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<SignUp />} />
+					<Route path="/menu" element={<Menu />} />
+					<Route path="/menu/:id" element={<DrinkCardDetails />} />
+					<Route path="/profile/menu/:id" element={<DrinkCardDetails />} />
+					<Route path="/createdrink/new" element={<CreateDrink />} />
+					<Route path="/mydrinks" element={<MyDrinks />} />
 				</Routes>
 			</statesContext.Provider>
 		</div>
