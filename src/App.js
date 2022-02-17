@@ -12,6 +12,7 @@ import SignUp from "./components/SignUp/SignUp";
 import DrinkCardDetails from "./components/DrinkCardDetails/DrinkCardDetails";
 import CreateDrink from "./components/CreateDrink/CreateDrink";
 import MyDrinks from "./components/MyDrinks/MyDrinks";
+import UpdateDrink from "./components/UpdateDrink/UpdateDrink";
 
 // import { statesContext } from './statesContext';
 export const statesContext = createContext("");
@@ -121,6 +122,7 @@ function App() {
 					<Route path='/menu/:id' element={<DrinkCardDetails />} />
 					<Route path='/createdrink/new' element={<CreateDrink />} />
 					<Route path='/mydrinks' element={<MyDrinks />} />
+					<Route path='/updatedrink/:id' element={<UpdateDrink />}/>
 				</Routes>
 			</statesContext.Provider>
 		</div>
