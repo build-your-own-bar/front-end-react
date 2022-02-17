@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './DrinkCardDetails.css';
 
@@ -9,6 +10,13 @@ function DrinkCardDetails(props) {
 	const [drink, setDrink] = useState(null);
 	const [show, setShow] = useState(false);
 	const { id } = useParams();
+	const newCommentData = {
+		title: '',
+		comment: '',
+	};
+	const [newComment, setNewComment] = useState(newCommentData);
+	const navigate = useNavigate();
+
 	const getDrinkDetail = async () => {
 		try {
 			const res = await fetch(`https://buildyobar.herokuapp.com/drinks/${id}`);
@@ -21,6 +29,51 @@ function DrinkCardDetails(props) {
 			console.log(error);
 		}
 	};
+
+	const deleteDrink = async () => {
+		try {
+			const res = await fetch(`https://buildyobar.herokuapp.com/drinks/${id}`, {
+				method: 'DELETE',
+				headers: {
+					Authorization: `Token ${localStorage.getItem('token')}`,
+				},
+			});
+			if (res.status === 204) {
+				navigate('/menu');
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const data = { ...newComment, drink_id: id };
+		console.log(id);
+		try {
+			const res = await fetch('https://buildyobar.herokuapp.com/comments', {
+				method: 'POST',
+				body: data,
+				headers: {
+					Authorization: `Token ${localStorage.getItem('token')}`,
+					'Content-Type': 'application/json',
+				},
+			});
+			console.log(res);
+			if (res.status === 200) {
+				const data = await res.json();
+				console.log(data);
+				navigate(`/menu/${id}`);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const handleChange = (event) => {
+		setNewComment({ ...newComment, [event.target.name]: event.target.value });
+	};
+
 	useEffect(() => {
 		getDrinkDetail();
 	}, []);
@@ -71,7 +124,7 @@ function DrinkCardDetails(props) {
 							<Button variant='secondary' onClick={handleClose}>
 								Cancel
 							</Button>
-							<Button variant='danger' onClick={handleClose}>
+							<Button variant='danger' onClick={deleteDrink}>
 								Delete
 							</Button>
 						</Modal.Footer>
@@ -87,24 +140,32 @@ function DrinkCardDetails(props) {
 								<h3>{comment.title}</h3>
 								<h4>{comment.owner}</h4>
 								<p>{comment.body}</p>
-								<Form>
-									<Form.Group
-										className='mb-3'
-										controlId='exampleForm.ControlInput1'>
-										<Form.Label>Title</Form.Label>
-										<Form.Control type='title' placeholder='Comment title' />
-									</Form.Group>
-									<Form.Group
-										className='mb-3'
-										controlId='exampleForm.ControlTextarea1'>
-										<Form.Label>Comment</Form.Label>
-										<Form.Control as='textarea' rows={3} />
-									</Form.Group>
-									<Button>Comment</Button>
-								</Form>
 							</div>
 						);
 					})}
+					<Form onSubmit={handleSubmit}>
+						<Form.Group className='mb-3' controlId='title'>
+							<Form.Label>Title</Form.Label>
+							<Form.Control
+								name='title'
+								type='text'
+								placeholder='Comment title'
+								value={newComment.title}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='mb-3' controlId='comment'>
+							<Form.Label>Comment</Form.Label>
+							<Form.Control
+								name='comment'
+								as='textarea'
+								rows={3}
+								value={newComment.comment}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Button type='submit'>Comment</Button>
+					</Form>
 				</div>
 			</div>
 		</>

@@ -3,6 +3,8 @@ import { Form, Button } from 'react-bootstrap';
 
 
 function UpdateDrink(props) {
+	
+
     return (
         <div>
             			<div className='w-75 p-3 mx-auto'>
