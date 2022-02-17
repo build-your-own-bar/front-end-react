@@ -1,18 +1,21 @@
 .card {
 	text-align: center;
-	max-width: 300px;
 	position: relative;
 	background-color: #36383b;
 	color: #e0b751;
-	margin: 30px;
+	margin: 5px;
 }
 
 .card-container {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
+	background-color: #e0b751;
 }
 
 a {
 	text-decoration: none;
+}
+
+.card img {
+	object-fit: cover;
+	width: 300px;
+	height: 300px;
 }
