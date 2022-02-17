@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Button } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
 
 import "./About.css";
@@ -111,7 +112,12 @@ function About(props) {
 					placeholder="Type your message here..."
 					required
 					className="form-elements"></textarea>
-				<input type="submit" value="Send" className="form-elements" />
+				<Button
+					type="submit"
+					value="Send"
+					className="form-elements btn-secondary text-warning">
+					Send
+				</Button>
 			</form>
 		</div>
 	);

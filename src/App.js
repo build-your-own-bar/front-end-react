@@ -2,6 +2,8 @@ import "./App.css";
 import axios from "axios";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { createContext, useState, useEffect } from "react";
+
+// Components
 import Navigation from "./components/Navigation/Navigation";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Menu from "./components/Menu/Menu";
@@ -14,7 +16,6 @@ import CreateDrink from "./components/CreateDrink/CreateDrink";
 import MyDrinks from "./components/MyDrinks/MyDrinks";
 import UpdateDrink from "./components/UpdateDrink/UpdateDrink";
 
-// import { statesContext } from './statesContext';
 export const statesContext = createContext("");
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 	const [drinks, setDrinks] = useState(false);
 	const [userId, setUserId] = useState(false);
 	const { pathname } = useLocation();
+	const navigate = useNavigate();
 
 	const [loggedIn, setLoggedIn] = useState(
 		localStorage.getItem("token") ? true : false
@@ -70,7 +72,6 @@ function App() {
 				},
 			});
 			if (response.status === 204) {
-				alert("You have been logged out!");
 				setLoggedIn(false);
 				setUserInfo(null);
 				localStorage.removeItem("token");
@@ -126,7 +127,7 @@ function App() {
 					<Route path="/profile/menu/:id" element={<DrinkCardDetails />} />
 					<Route path="/createdrink/new" element={<CreateDrink />} />
 					<Route path="/mydrinks" element={<MyDrinks />} />
-					<Route path="/menu/:id/edit" element={<UpdateDrink /> } />
+					<Route path="/menu/:id/edit" element={<UpdateDrink />} />
 				</Routes>
 			</statesContext.Provider>
 		</div>
