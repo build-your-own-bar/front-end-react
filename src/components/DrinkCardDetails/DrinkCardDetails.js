@@ -12,7 +12,7 @@ function DrinkCardDetails(props) {
 	const { id } = useParams();
 	const newCommentData = {
 		title: '',
-		comment: '',
+		body: '',
 	};
 	const [newComment, setNewComment] = useState(newCommentData);
 	const navigate = useNavigate();
@@ -49,11 +49,11 @@ function DrinkCardDetails(props) {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const data = { ...newComment, drink_id: id };
-		console.log(id);
+		console.log(data);
 		try {
-			const res = await fetch('https://buildyobar.herokuapp.com/comments', {
+			const res = await fetch('https://buildyobar.herokuapp.com/comments/', {
 				method: 'POST',
-				body: data,
+				body: JSON.stringify(data),
 				headers: {
 					Authorization: `Token ${localStorage.getItem('token')}`,
 					'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function DrinkCardDetails(props) {
 			if (res.status === 200) {
 				const data = await res.json();
 				console.log(data);
-				navigate(`/menu/${id}`);
+				// navigate(`/menu/${id}`);
 			}
 		} catch (error) {
 			console.error(error);
@@ -110,7 +110,7 @@ function DrinkCardDetails(props) {
 					<h4 className='text-area'>
 						Special Request: {drink.special_request}
 					</h4>
-					<Link to='/updatedrink/:id'>
+					<Link to={`/menu/${id}/edit`}>
 						<Button>Update</Button>
 					</Link>
 					<Button variant='danger' onClick={handleShow}>
@@ -133,7 +133,7 @@ function DrinkCardDetails(props) {
 			</div>
 			<div className='details-container'>
 				<div>
-					<h3 className='comment-title'>Comments</h3>
+					<h3 className='comment-title text-warning'>Comments</h3>
 					{drink.comments.map((comment) => {
 						return (
 							<div key={comment.id} className='comment-container'>
@@ -145,7 +145,7 @@ function DrinkCardDetails(props) {
 					})}
 					<Form onSubmit={handleSubmit}>
 						<Form.Group className='mb-3' controlId='title'>
-							<Form.Label>Title</Form.Label>
+							<Form.Label className='text-warning'>Title</Form.Label>
 							<Form.Control
 								name='title'
 								type='text'
@@ -154,13 +154,13 @@ function DrinkCardDetails(props) {
 								onChange={handleChange}
 							/>
 						</Form.Group>
-						<Form.Group className='mb-3' controlId='comment'>
-							<Form.Label>Comment</Form.Label>
+						<Form.Group className='mb-3' controlId='body'>
+							<Form.Label className='text-warning'>Comment</Form.Label>
 							<Form.Control
-								name='comment'
+								name='body'
 								as='textarea'
 								rows={3}
-								value={newComment.comment}
+								value={newComment.body}
 								onChange={handleChange}
 							/>
 						</Form.Group>

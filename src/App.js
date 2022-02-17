@@ -126,6 +126,7 @@ function App() {
 					<Route path="/profile/menu/:id" element={<DrinkCardDetails />} />
 					<Route path="/createdrink/new" element={<CreateDrink />} />
 					<Route path="/mydrinks" element={<MyDrinks />} />
+					<Route path="/menu/:id/edit" element={<UpdateDrink /> } />
 				</Routes>
 			</statesContext.Provider>
 		</div>
