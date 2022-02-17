@@ -1,13 +1,13 @@
-import React from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { Button, Form } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function CommentForm(props) {
-    const editCommentData = {
-        title: '',
-        body: '',
-    };
+	const editCommentData = {
+		title: "",
+		body: "",
+	};
 	const [comment, setComment] = useState(editCommentData);
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -25,21 +25,23 @@ function CommentForm(props) {
 			console.error(error);
 		}
 	};
-    
+
 	const deleteComment = async () => {
 		try {
 			const res = await fetch(
 				`https://buildyobar.herokuapp.com/comments/${id}`,
 				{
-					method: 'DELETE',
+					method: "DELETE",
 					headers: {
-						Authorization: `Token ${localStorage.getItem('token')}`,
+						Authorization: `Token ${localStorage.getItem("token")}`,
 					},
 				}
 			);
 			console.log(res);
 			if (res.status === 204) {
 				navigate(`/menu`);
+			} else if (res.status === 403 || 401) {
+				alert("You are not authorized to delete this post!");
 			}
 		} catch (error) {
 			console.error(error);
@@ -48,33 +50,35 @@ function CommentForm(props) {
 
 	async function commentEdit(event) {
 		event.preventDefault();
-        const commentData = { ...comment, drink_id: id };
-        console.log(commentData);
+		const commentData = { ...comment, drink_id: id };
+		console.log(commentData);
 		try {
 			const res = await fetch(
 				`https://buildyobar.herokuapp.com/comments/${id}`,
 				{
-					method: 'PATCH',
-                    body: JSON.stringify(commentData),
+					method: "PATCH",
+					body: JSON.stringify(commentData),
 					headers: {
-						Authorization: `Token ${localStorage.getItem('token')}`,
+						Authorization: `Token ${localStorage.getItem("token")}`,
 					},
-                    
-				});
-            console.log(res)
+				}
+			);
+			console.log(res);
 			if (res.status === 200) {
-                const commentData = await res.json();
-                console.log(commentData);
+				const commentData = await res.json();
+				console.log(commentData);
 				navigate(`/menu`);
+			} else if (res.status === 403 || 401) {
+				alert("You are not authorized to delete this post!");
 			}
 		} catch (error) {
 			console.error(error);
 		}
 	}
 
-    function handleChange(event) {
-        setComment({ ...comment, [event.target.name]: event.target.value });
-    };
+	function handleChange(event) {
+		setComment({ ...comment, [event.target.name]: event.target.value });
+	}
 
 	useEffect(() => {
 		getComment();
@@ -87,38 +91,38 @@ function CommentForm(props) {
 	return (
 		<div>
 			<Form
-				encType='multipart/form-data'
-				className='mt-5'
+				encType="multipart/form-data"
+				className="mt-5"
 				onSubmit={commentEdit}>
-				<Form.Group className='mb-3 text-center' controlId='title'>
-					<Form.Label className='text-warning'>Title</Form.Label>
+				<Form.Group className="mb-3 text-center" controlId="title">
+					<Form.Label className="text-warning">Title</Form.Label>
 					<Form.Control
-						name='title'
-						type='text'
-						placeholder='Comment title'
-						className='mx-auto w-75'
+						name="title"
+						type="text"
+						placeholder="Comment title"
+						className="mx-auto w-75"
 						value={comment.title}
 						onChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group className='mb-3 text-center' controlId='body'>
-					<Form.Label className='text-warning'>Comment</Form.Label>
+				<Form.Group className="mb-3 text-center" controlId="body">
+					<Form.Label className="text-warning">Comment</Form.Label>
 					<Form.Control
-						name='body'
-						as='textarea'
+						name="body"
+						as="textarea"
 						rows={3}
 						value={comment.body}
-						className='mx-auto w-75'
-						placeholder='What are you thinking?'
+						className="mx-auto w-75"
+						placeholder="What are you thinking?"
 						onChange={handleChange}
 					/>
 				</Form.Group>
-				<div className='text-center mb-4'>
-					{' '}
-					<Button className='mx-3 btn-info' type='submit'>
+				<div className="text-center mb-4">
+					{" "}
+					<Button className="mx-3 btn-info" type="submit">
 						Edit
 					</Button>
-					<Button onClick={deleteComment} variant='danger'>
+					<Button onClick={deleteComment} variant="danger">
 						Delete
 					</Button>
 				</div>
