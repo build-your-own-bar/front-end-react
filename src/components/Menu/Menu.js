@@ -13,25 +13,23 @@ function Menu() {
 		<div>
 			<div className='drinkContainer'>
 				<div className='text-center mt-3'>
-				<Link to='/createdrink/new'>
-					<Button className='primary text-center'>Create a drink</Button>
-				</Link>
+					<Link to='/createdrink/new'>
+						<Button className='primary text-center'>Create a drink</Button>
+					</Link>
 				</div>
-				<Row>
-					{drinks &&
-						drinks.map((drink, i) => (
-							<div
-								item
-								className='gridItem'
-								key={drink.id}
-								style={{
-									padding: '20px',
-									textDecoration: 'none',
-								}}>
-								<DrinkCard drink={drink} />
-							</div>
-						))}
-				</Row>
+				{drinks &&
+					drinks.map((drink, i) => (
+						<div
+							item
+							className='gridItem'
+							key={drink.id}
+							style={{
+								padding: '20px',
+								textDecoration: 'none',
+							}}>
+							<DrinkCard drink={drink} />
+						</div>
+					))}
 			</div>
 		</div>
 	);

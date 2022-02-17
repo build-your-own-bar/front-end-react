@@ -10,7 +10,7 @@ function DrinkCard({ drink }) {
 	return (
 		<Container>
 			<Row>
-				<div className='col-xs-12 d-flex'>
+				<div className='card-container '>
 					<Link to={`/menu/${drink.id}`}>
 						<div className='card'>
 							<img
