@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { statesContext } from '../../App';
 import { Container } from '@mui/material';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import ProfileCards from '../ProfileCards/ProfileCards';
 
 import './Profile.css';
@@ -11,40 +11,47 @@ function Profile(props) {
 	const { userInfo, drinks, loggedIn } = useContext(statesContext);
 	const [noDrinks, setNoDrinks] = useState(false);
 	let counter = 0;
-	
+
 	const emptyProfile = () => {
-		drinks.map((drink)=> {
-			if (userInfo.username === drink.owner) {
-				return counter += 1;
-			} 
-			
-		})
-	}
+		if (loggedIn) {
+			drinks.map((drink) => {
+				if (userInfo.username === drink.owner) {
+					return (counter += 1);
+				}
+			})
+		} else {
+			return <div> No Drinks! </div>
+		}
+	};
 
 	useEffect(() => {
 		emptyProfile();
-	}, []);
-	
+	}, [drinks]);
+
 	return (
 		<div>
-			<h3 className="text-center text-warning mt-5 fw-bold display-5 profile-title">{userInfo.username}'s Drinks</h3>
+			<h3 className='text-center text-warning mt-5 fw-bold display-5 profile-title'>
+				{userInfo.username}'s Drinks
+			</h3>
 			<div className='text-center mt-5'>
-			{counter <=0 && (<Link to='/createdrink/new'><Button className="profile-create-btn">Add Drink</Button></Link>)}
+				{counter <= 0 && (
+					<Link to='/createdrink/new'>
+						<Button className='profile-create-btn'>Add Drink</Button>
+					</Link>
+				)}
 			</div>
-				<div
-				className='profile-container mt-3 animate__animated animate__slideInRight'>
-				
+			<div className='profile-container mt-3 animate__animated animate__slideInRight'>
 				{loggedIn ? (
 					drinks.map((drink, i) => {
 						if (userInfo.username === drink.owner) {
 							return (
-								<div className="mb-3 mt-5">
-								<Container className='d-flex align-items-center justify-content-center'>
-									<ProfileCards drink={drink} />
-								</Container>
+								<div className='mb-3 mt-5'>
+									<Container className='d-flex align-items-center justify-content-center'>
+										<ProfileCards drink={drink} />
+									</Container>
 								</div>
 							);
-						} 
+						}
 					})
 				) : (
 					<div className='profile-div'>
@@ -57,7 +64,6 @@ function Profile(props) {
 					</div>
 				)}
 			</div>
-			
 		</div>
 	);
 }

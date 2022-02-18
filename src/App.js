@@ -98,7 +98,7 @@ function App() {
 
 	useEffect(() => {
 		getDrinks();
-	}, []);
+	}, [drinks]);
 
 	return (
 		<div className="App">

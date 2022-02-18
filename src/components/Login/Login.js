@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { statesContext } from "../../App";
+import './Login.css';
 
 function Login() {
 	const { handleSetLoggedIn } = useContext(statesContext);
@@ -19,6 +20,7 @@ function Login() {
 			return { ...prevState, [event.target.id]: event.target.value };
 		});
 	};
+	
 	const _handleLogin = async (event) => {
 		event.preventDefault();
 		setError(false);
@@ -31,7 +33,6 @@ function Login() {
 					"Content-Type": "application/json",
 				},
 			});
-			console.log(response);
 			if (response.status === 200) {
 				const data = await response.json();
 				handleSetLoggedIn(data.auth_token);
@@ -45,7 +46,7 @@ function Login() {
 	};
 
 	return (
-		<div>
+		<div className='login-container'>
 			<Form
 				className="d-flex flex-column align-items-center mt-5"
 				onSubmit={_handleLogin}>

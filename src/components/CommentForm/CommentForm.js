@@ -37,7 +37,6 @@ function CommentForm(props) {
 					},
 				}
 			);
-			console.log(res);
 			if (res.status === 204) {
 				navigate(`/menu`);
 			} else if (res.status === 403 || 401) {
@@ -50,9 +49,7 @@ function CommentForm(props) {
 
 	async function commentEdit(event) {
 		event.preventDefault();
-		console.log(comment);
 		const commentData = { ...comment };
-		console.log(commentData);
 		try {
 			const res = await fetch(
 				`https://buildyobar.herokuapp.com/comments/${id}`,
@@ -65,10 +62,8 @@ function CommentForm(props) {
 					},
 				}
 			);
-			console.log(res);
 			if (res.status === 200) {
 				const commentData = await res.json();
-				console.log(commentData);
 				navigate(`/menu`);
 			} else if (res.status === 403 || 401) {
 				alert("You are not authorized to edit this post!");
