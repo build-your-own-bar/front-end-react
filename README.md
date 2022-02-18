@@ -33,7 +33,7 @@ https://github.com/build-your-own-bar/build-your-own-bar-backend
 
 - We would like to add a feature that allows you to visit other member profiles so you can see their drink list.
 - We would like to add a favorites feature that allows a user to choose their favorite drinks and lets them view them whenever they're signed in.
-- We would also like to finish our Agnular version of this!
+- We would also like to finish our Angular version of this!
 
 # Contribution Guidelines
 
