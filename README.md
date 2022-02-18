@@ -20,6 +20,9 @@ https://github.com/build-your-own-bar/build-your-own-bar-backend
 - Axios
 - (Angular was our first love)
 
+## Live Website (Deployed with Netlify)
+https://buildyourownbar.netlify.app/menu
+
 ## Installation
 
 1. Fork and clone this repo to your local machine
