@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import Logo from '../../assets/byobar.png';
 
 import "./LandingPage.css";
 
@@ -19,10 +20,7 @@ function LandingPage(props) {
 	return (
 		<div className="text-warning landing-container">
 			<div className="landing-div">
-				<h2 className="landing-title  animate__animated animate__lightSpeedInLeft">
-					BYOBar
-				</h2>
-
+				<img className="landing-title  animate__animated animate__lightSpeedInLeft" src={Logo} alt='byob-logo' />
 				<h3 className="animate__animated animate__fadeInUp animate__delay-1s landing-moto">
 					Where you always feel like a regular
 				</h3>

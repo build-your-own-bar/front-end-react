@@ -56,7 +56,6 @@ function SignUp(props) {
 					console.log(response);
 					if (response.status === 200) {
 						const data = await response.json();
-						console.log(data);
 						handleSetLoggedIn(data.auth_token);
 						navigate('/menu');
 					} else {
@@ -78,7 +77,7 @@ function SignUp(props) {
 	};
 
 	return (
-		<div>
+		<div className='signup-container'>
 			<Form
 				className='d-flex flex-column align-items-center mt-5'
 				onSubmit={handleSubmit}>

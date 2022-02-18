@@ -46,9 +46,7 @@ function CreateDrink(props) {
 					Authorization: `Token ${localStorage.getItem('token')}`,
 				},
 			});
-			console.log(res);
 			if (res.status === 201) {
-				
 				navigate('/menu');
 			}
 		} catch (error) {
@@ -59,6 +57,7 @@ function CreateDrink(props) {
 	if (!loggedIn) {
 		return <Navigate to='/login'/>
 	}
+	
 	return (
 		<div>
 			<h2 className='text-center text-warning mt-3'>New Cocktail</h2>
