@@ -76,7 +76,7 @@ function DrinkCardDetails(props) {
 
 	useEffect(() => {
 		getDrinkDetail();
-	}, [drink]);
+	}, []);
 
 	function handleImageError(event) {
 		event.currentTarget.src = "https://i.imgur.com/JNKyLlj.jpg";
