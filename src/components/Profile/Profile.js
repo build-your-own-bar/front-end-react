@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { statesContext } from '../../App';
-import { Container, Grid } from '@mui/material';
+import { Container } from '@mui/material';
 import ProfileCards from '../ProfileCards/ProfileCards';
 import './Profile.css';
 
@@ -10,28 +10,40 @@ function Profile(props) {
 
 	return (
 		<div>
-			{loggedIn ? (
-				drinks.map((drink, i) => {
-					if (userInfo.username === drink.owner) {
-						return (
-							<Container className='d-flex align-items-center justify-content-center'>
-								<Grid className='gridContainer' container spacing={0}>
+			<div
+				className='d-flex align-items-center justify-content-center'
+				style={{
+					padding: '20px',
+					display: 'flex',
+					flexdirection: 'row',
+					justifycontent: 'center',
+					flexwrap: 'wrap',
+					margin: '10px 5px 0px 5px',
+					borderradius: '5px',
+					paddingbottom: '100px',
+				}}
+				sx={{ display: 'inline', whiteSpace: 'normal' }}>
+				{loggedIn ? (
+					drinks.map((drink, i) => {
+						if (userInfo.username === drink.owner) {
+							return (
+								<Container className='d-flex align-items-center justify-content-center'>
 									<ProfileCards drink={drink} />
-								</Grid>
-							</Container>
-						);
-					}
-				})
-			) : (
-				<div className='profile-div'>
-					<h2 className='text-warning '>
-						You must be logged in to see your profile!{' '}
-					</h2>
-					<Link to='/login' className='display-5'>
-						Log in here!
-					</Link>
-				</div>
-			)}
+								</Container>
+							);
+						}
+					})
+				) : (
+					<div className='profile-div'>
+						<h2 className='text-warning '>
+							You must be logged in to see your profile!{' '}
+						</h2>
+						<Link to='/login' className='display-5'>
+							Log in here!
+						</Link>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }
