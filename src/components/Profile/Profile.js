@@ -1,36 +1,33 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { statesContext } from "../../App";
-
-import "./Profile.css";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { statesContext } from '../../App';
+import { Container, Grid } from '@mui/material';
+import ProfileCards from '../ProfileCards/ProfileCards';
+import './Profile.css';
 
 function Profile(props) {
 	const { userInfo, drinks, loggedIn } = useContext(statesContext);
 
-	// map through the drinks to find userinfo name equal to drinks owner
-	// return the drink name
-	// return the link to that drinks details page
 	return (
 		<div>
 			{loggedIn ? (
 				drinks.map((drink, i) => {
 					if (userInfo.username === drink.owner) {
 						return (
-							<Link to={`/menu/${drink.id}`}>
-								<div>
-									<div>{drink.name}</div>
-									<img src={drink.photo} alt={drink.name}></img>
-								</div>
-							</Link>
+							<Container className='d-flex align-items-center justify-content-center'>
+								<Grid className='gridContainer' container spacing={0}>
+									<ProfileCards drink={drink} />
+								</Grid>
+							</Container>
 						);
 					}
 				})
 			) : (
-				<div className="profile-div">
-					<h2 className="text-warning ">
-						You must be logged in to see your profile!{" "}
+				<div className='profile-div'>
+					<h2 className='text-warning '>
+						You must be logged in to see your profile!{' '}
 					</h2>
-					<Link to="/login" className="display-5">
+					<Link to='/login' className='display-5'>
 						Log in here!
 					</Link>
 				</div>
