@@ -28,10 +28,10 @@ function Menu() {
 			</div>
 			<br />
 			<br />
-			<div className='profile-container mt-3'>
+			<div className='menu-container mt-3 animate__animated animate__slideInRight'>
 					{drinks &&
 						drinks.map((drink, i) => (
-							<div className="mb-3 mt-5">
+							<div className="mb-3 mt-5 ">
 								<Container className='d-flex align-items-center justify-content-center'>
 									<DrinkCard drink={drink} />
 								</Container>

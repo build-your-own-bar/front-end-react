@@ -32,7 +32,7 @@ function Profile(props) {
 			{counter <=0 && (<Link to='/createdrink/new'><Button className="profile-create-btn">Add Drink</Button></Link>)}
 			</div>
 				<div
-				className='profile-container mt-3'>
+				className='profile-container mt-3 animate__animated animate__slideInRight'>
 				
 				{loggedIn ? (
 					drinks.map((drink, i) => {
