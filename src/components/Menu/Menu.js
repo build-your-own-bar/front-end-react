@@ -14,37 +14,32 @@ function Menu() {
 	return (
 		<div className='text-center'>
 			<br />
-			<img src={image} alt='shaker' classname='shaker' />
+			<img src={image} alt='shaker' className='shaker' />
 			{/* credit to winnievinzence from flaticon.com */}
 			<br />
 			<br />
 			<h2 className='text-warning text-center'>Menu</h2>
 			<div className='text-center mt-3'>
-				<Link to='/createdrink/new'>
-					<Button className='btn btn-primary btn-md btn-block create-drink'>
-						Create a drink
-					</Button>
-				</Link>
+				{loggedIn && (
+					<Link to='/createdrink/new'>
+						<Button className='btn btn-primary btn-md btn-block create-drink'>
+							Create a drink
+						</Button>
+					</Link>
+				)}
 			</div>
 			<br />
 			<br />
-			<Container className='d-flex align-items-center justify-content-center'>
-				<Grid className='gridContainer' container spacing={0}>
-					{drinks &&
-						drinks.map((drink, i) => (
-							<div
-								item
-								className='gridItem'
-								key={drink.id}
-								style={{
-									padding: '20px',
-									textDecoration: 'none',
-								}}>
+			<div className='menu-container mt-3 animate__animated animate__slideInRight'>
+				{drinks &&
+					drinks.map((drink, i) => (
+						<div className='mb-3 mt-5 '>
+							<Container className='d-flex align-items-center justify-content-center'>
 								<DrinkCard drink={drink} />
-							</div>
-						))}
-				</Grid>
-			</Container>
+							</Container>
+						</div>
+					))}
+			</div>
 		</div>
 	);
 }

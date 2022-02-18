@@ -38,6 +38,7 @@
 	color: goldenrod;
 	margin: 25px;
 	border-bottom: .5px solid goldenrod;
+	width: 50vh;
 }
 
 .btn-div {
@@ -49,15 +50,12 @@
 	margin-bottom: 10px;
 	border-bottom: .5px solid goldenrod;
 }
-
-
-
 @media (min-width: 800px) {
 	.details-container {
 		display: flex;
 		flex-direction: row;
 		margin: 20px 20px;
-		border: 1px solid goldenrod;
+		/* border: 1px solid goldenrod; */
 		border-radius: 5px;
 	}
 
@@ -77,5 +75,8 @@
 		height: 600px;
 		/* border: 1px solid goldenrod; */
 		margin: 20px;
+	}
+	.comment-container {
+		width: 100vh;
 	}
 }

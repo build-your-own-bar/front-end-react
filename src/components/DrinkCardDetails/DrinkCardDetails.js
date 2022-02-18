@@ -53,7 +53,6 @@ function DrinkCardDetails(props) {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const data = { ...newComment, drink_id: id };
-		console.log(data);
 		try {
 			const res = await fetch("https://buildyobar.herokuapp.com/comments/", {
 				method: "POST",
@@ -63,10 +62,7 @@ function DrinkCardDetails(props) {
 					"Content-Type": "application/json",
 				},
 			});
-			console.log(res);
 			if (res.status === 200) {
-				const data = await res.json();
-				console.log(data);
 				navigate(`/menu/${id}`);
 			}
 		} catch (error) {
@@ -80,7 +76,7 @@ function DrinkCardDetails(props) {
 
 	useEffect(() => {
 		getDrinkDetail();
-	}, []);
+	}, [drink]);
 
 	function handleImageError(event) {
 		event.currentTarget.src = "https://i.imgur.com/JNKyLlj.jpg";

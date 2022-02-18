@@ -12,16 +12,22 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	margin-top: 800px;
+	top: 20%;
 }
 
 .landing-title {
-	font-size: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	width: 25%;
+	height: 50%;
 }
 
 .landing-moto {
 	margin-top: 20px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	font-size: 1rem;
 }
 

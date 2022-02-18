@@ -18,6 +18,7 @@ https://github.com/build-your-own-bar/build-your-own-bar-backend
 - React Bootstrap
 - React Router
 - Axios
+- (Angular was our first love)
 
 ## Installation
 
@@ -29,11 +30,18 @@ https://github.com/build-your-own-bar/build-your-own-bar-backend
 
 ## Current Application State
 
+![BYOBar](src/assets/landing-page.png)
+![BYOBar](src/assets/menu.png)
+![BYOBar](src/assets/drink-details.png)
+![BYOBar](src/assets/logged-in.png)
+![BYOBar](src/assets/profile.png)
+![BYOBar](src/assets/about.png)
+
 # Future Improvements
 
 - We would like to add a feature that allows you to visit other member profiles so you can see their drink list.
 - We would like to add a favorites feature that allows a user to choose their favorite drinks and lets them view them whenever they're signed in.
-- We would also like to finish our Agnular version of this!
+- We would also like to finish our Angular version of this!
 
 # Contribution Guidelines
 
@@ -69,6 +77,8 @@ Stretch:
 ### Unsolved Problems / Major Hurdles
 
 > The biggest hurdle we faced was getting the Comment section of each drink to work the way we wanted it to. We had some strange interactions with our backend and spent the most time debugging this. We did end up fixing it though!
+
+> Trying to get angular to work with django and python. Didn't understand the documenations when it came down to fetching data, passing down data and user authorizations.
 
 ### Contributors
 
