@@ -50,7 +50,8 @@ function CommentForm(props) {
 
 	async function commentEdit(event) {
 		event.preventDefault();
-		const commentData = { ...comment, drink_id: id };
+		console.log(comment);
+		const commentData = { ...comment };
 		console.log(commentData);
 		try {
 			const res = await fetch(
@@ -60,6 +61,7 @@ function CommentForm(props) {
 					body: JSON.stringify(commentData),
 					headers: {
 						Authorization: `Token ${localStorage.getItem("token")}`,
+						"Content-Type": "application/json",
 					},
 				}
 			);
@@ -69,7 +71,7 @@ function CommentForm(props) {
 				console.log(commentData);
 				navigate(`/menu`);
 			} else if (res.status === 403 || 401) {
-				alert("You are not authorized to delete this post!");
+				alert("You are not authorized to edit this post!");
 			}
 		} catch (error) {
 			console.error(error);
