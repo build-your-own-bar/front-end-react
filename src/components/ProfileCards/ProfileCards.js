@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@mui/material';
-import './DrinkCard.css';
+import './ProfileCards.css';
 
 function DrinkCard({ drink }) {
 	// const { drinks, setDrinks, user, setUser } = useContext(statesContext);

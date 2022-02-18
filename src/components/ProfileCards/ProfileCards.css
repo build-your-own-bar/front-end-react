@@ -1,4 +1,4 @@
-.card {
+.profile-card {
 	text-align: center;
 	position: relative;
 	background-color: #36383b;
@@ -6,7 +6,7 @@
 	margin: 5px;
 }
 
-.card-container {
+.profile-card-container {
 	background-color: #e0b751;
 }
 
@@ -14,7 +14,7 @@ a {
 	text-decoration: none;
 }
 
-.card img {
+.profile-card img {
 	object-fit: cover;
 	width: 300px;
 	height: 300px;
