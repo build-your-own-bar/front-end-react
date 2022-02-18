@@ -14,7 +14,7 @@ function Menu() {
 	return (
 		<div className='text-center'>
 			<br />
-			<img src={image} alt='shaker' classname='shaker' />
+			<img src={image} alt='shaker' className='shaker' />
 			{/* credit to winnievinzence from flaticon.com */}
 			<br />
 			<br />
@@ -28,23 +28,16 @@ function Menu() {
 			</div>
 			<br />
 			<br />
-			<Container className='d-flex align-items-center justify-content-center'>
-				<Grid className='gridContainer' container spacing={0}>
+			<div className='profile-container mt-3'>
 					{drinks &&
 						drinks.map((drink, i) => (
-							<div
-								item
-								className='gridItem'
-								key={drink.id}
-								style={{
-									padding: '20px',
-									textDecoration: 'none',
-								}}>
-								<DrinkCard drink={drink} />
-							</div>
+							<div className="mb-3 mt-5">
+								<Container className='d-flex align-items-center justify-content-center'>
+									<DrinkCard drink={drink} />
+								</Container>
+								</div>
 						))}
-				</Grid>
-			</Container>
+			</div>
 		</div>
 	);
 }

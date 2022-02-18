@@ -1,37 +1,50 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { statesContext } from '../../App';
 import { Container } from '@mui/material';
+import {Button} from 'react-bootstrap';
 import ProfileCards from '../ProfileCards/ProfileCards';
+
 import './Profile.css';
 
 function Profile(props) {
 	const { userInfo, drinks, loggedIn } = useContext(statesContext);
+	const [noDrinks, setNoDrinks] = useState(false);
+	let counter = 0;
+	
+	const emptyProfile = () => {
+		drinks.map((drink)=> {
+			if (userInfo.username === drink.owner) {
+				return counter += 1;
+			} 
+			
+		})
+	}
 
+	useEffect(() => {
+		emptyProfile();
+	}, []);
+	
 	return (
 		<div>
-			<div
-				className='d-flex align-items-center justify-content-center'
-				style={{
-					padding: '20px',
-					display: 'flex',
-					flexdirection: 'row',
-					justifycontent: 'center',
-					flexwrap: 'wrap',
-					margin: '10px 5px 0px 5px',
-					borderradius: '5px',
-					paddingbottom: '100px',
-				}}
-				sx={{ display: 'inline', whiteSpace: 'normal' }}>
+			<h3 className="text-center text-warning mt-5 fw-bold display-5 profile-title">{userInfo.username}'s Drinks</h3>
+			<div className='text-center mt-5'>
+			{counter <=0 && (<Link to='/createdrink/new'><Button className="profile-create-btn">Add Drink</Button></Link>)}
+			</div>
+				<div
+				className='profile-container mt-3'>
+				
 				{loggedIn ? (
 					drinks.map((drink, i) => {
 						if (userInfo.username === drink.owner) {
 							return (
+								<div className="mb-3 mt-5">
 								<Container className='d-flex align-items-center justify-content-center'>
 									<ProfileCards drink={drink} />
 								</Container>
+								</div>
 							);
-						}
+						} 
 					})
 				) : (
 					<div className='profile-div'>
@@ -44,6 +57,7 @@ function Profile(props) {
 					</div>
 				)}
 			</div>
+			
 		</div>
 	);
 }
