@@ -86,7 +86,7 @@ function DrinkCardDetails(props) {
 	const handleShow = () => setShow(true);
 
 	if (!drink) {
-		return <p>Loading Drink...</p>;
+		return <div>Loading Drink...</div>;
 	}
 
 	return (
