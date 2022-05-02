@@ -38,7 +38,7 @@ function About(props) {
 						target="_blank"
 						rel="noreferrer">
 						<img
-							src="https://media-exp1.licdn.com/dms/image/C4E03AQF93qc1J_iaog/profile-displayphoto-shrink_800_800/0/1516816789392?e=1650499200&v=beta&t=4D5gnCtkRs7Pc4Qanq6FIkrJXRbCl6C8VHOZHKVfK1E"
+							src="https://i.imgur.com/2YSsYCf.jpg"
 							alt="chinsan"
 							className="img-about"></img>
 					</a>
@@ -49,7 +49,7 @@ function About(props) {
 						target="_blank"
 						rel="noreferrer">
 						<img
-							src="https://media-exp1.licdn.com/dms/image/C4E03AQGx3GKYB9GhJA/profile-displayphoto-shrink_800_800/0/1642552890770?e=1650499200&v=beta&t=HQyElYLeHp5fFVYwj2M9xhVVFoPBRaZYlMeBwmBrtVc"
+							src="https://i.imgur.com/CJi6arY.jpg"
 							alt="joey"
 							className="img-about"></img>
 					</a>
@@ -60,7 +60,7 @@ function About(props) {
 						target="_blank"
 						rel="noreferrer">
 						<img
-							src="https://media-exp1.licdn.com/dms/image/C4D03AQHmpbIYTytLBA/profile-displayphoto-shrink_800_800/0/1642438699152?e=1650499200&v=beta&t=AT9R39m_nuwCsqzkRNKL0Oh2UbHBnh300UPSKESbA8g"
+							src="https://i.imgur.com/qT5xs6W.jpg"
 							alt="justin"
 							className="img-about"></img>
 					</a>
