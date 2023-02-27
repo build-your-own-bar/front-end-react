@@ -25,7 +25,7 @@ function Login() {
 		event.preventDefault();
 		setError(false);
 		try {
-			const API_ENDPOINT = `https://buildyobar.herokuapp.com/token/login`;
+			const API_ENDPOINT = `https://buildyourbar.herokuapp.com/token/login`;
 			const response = await fetch(API_ENDPOINT, {
 				method: "POST",
 				body: JSON.stringify(formData),

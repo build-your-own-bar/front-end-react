@@ -15,7 +15,7 @@ function CommentForm(props) {
 	const getComment = async () => {
 		try {
 			const res = await fetch(
-				`https://buildyobar.herokuapp.com/comments/${id}`
+				`https://buildyourbar.herokuapp.com/comments/${id}`
 			);
 			const data = await res.json();
 			if (res.status === 200) {
@@ -29,11 +29,11 @@ function CommentForm(props) {
 	const deleteComment = async () => {
 		try {
 			const res = await fetch(
-				`https://buildyobar.herokuapp.com/comments/${id}`,
+				`https://buildyourbar.herokuapp.com/comments/${id}`,
 				{
-					method: "DELETE",
+					method: 'DELETE',
 					headers: {
-						Authorization: `Token ${localStorage.getItem("token")}`,
+						Authorization: `Token ${localStorage.getItem('token')}`,
 					},
 				}
 			);
@@ -52,13 +52,13 @@ function CommentForm(props) {
 		const commentData = { ...comment };
 		try {
 			const res = await fetch(
-				`https://buildyobar.herokuapp.com/comments/${id}`,
+				`https://buildyourbar.herokuapp.com/comments/${id}`,
 				{
-					method: "PATCH",
+					method: 'PATCH',
 					body: JSON.stringify(commentData),
 					headers: {
-						Authorization: `Token ${localStorage.getItem("token")}`,
-						"Content-Type": "application/json",
+						Authorization: `Token ${localStorage.getItem('token')}`,
+						'Content-Type': 'application/json',
 					},
 				}
 			);
