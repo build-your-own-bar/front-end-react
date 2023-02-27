@@ -21,8 +21,8 @@ import CommentForm from "./components/CommentForm/CommentForm";
 export const statesContext = createContext("");
 
 function App() {
-	const baseUrl = "https://buildyobar.herokuapp.com/";
-	const drinkUrl = "https://buildyobar.herokuapp.com/drinks/";
+	const baseUrl = 'https://buildyourbar.herokuapp.com/';
+	const drinkUrl = 'https://buildyourbar.herokuapp.com/drinks/';
 	const [user, setUser] = useState(false);
 	const [drinks, setDrinks] = useState(false);
 	const [userId, setUserId] = useState(false);

@@ -10,7 +10,9 @@ function UpdateDrink(props) {
 
 	const getDrinkDetail = async () => {
 		try {
-			const res = await fetch(`https://buildyobar.herokuapp.com/drinks/${id}`);
+			const res = await fetch(
+				`https://buildyourbar.herokuapp.com/drinks/${id}`
+			);
 			const data = await res.json();
 			if (res.status === 200) {
 				setDrink(data);
@@ -28,13 +30,16 @@ function UpdateDrink(props) {
 		event.preventDefault();
 		const data = new FormData(event.target);
 		try {
-			const res = await fetch(`https://buildyobar.herokuapp.com/drinks/${id}`, {
-				method: "PUT",
-				headers: {
-					Authorization: `Token ${localStorage.getItem("token")}`,
-				},
-				body: data,
-			});
+			const res = await fetch(
+				`https://buildyourbar.herokuapp.com/drinks/${id}`,
+				{
+					method: 'PUT',
+					headers: {
+						Authorization: `Token ${localStorage.getItem('token')}`,
+					},
+					body: data,
+				}
+			);
 			if (res.status === 200) {
 				navigate(`/menu/${id}`);
 			} else if (res.status === 403 || 401) {

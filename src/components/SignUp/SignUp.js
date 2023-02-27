@@ -36,7 +36,7 @@ function SignUp(props) {
 				password: signUp.password,
 			};
 			try {
-				const res = await fetch('https://buildyobar.herokuapp.com/users/', {
+				const res = await fetch('https://buildyourbar.herokuapp.com/users/', {
 					method: 'POST',
 					body: JSON.stringify(signUp),
 					headers: {
@@ -45,7 +45,7 @@ function SignUp(props) {
 				});
 				if (res.status === 201) {
 					setSuccess(true);
-					const API_ENDPOINT = `https://buildyobar.herokuapp.com/token/login`;
+					const API_ENDPOINT = `https://buildyourbar.herokuapp.com/token/login`;
 					const response = await fetch(API_ENDPOINT, {
 						method: 'POST',
 						body: JSON.stringify(tempLogin),

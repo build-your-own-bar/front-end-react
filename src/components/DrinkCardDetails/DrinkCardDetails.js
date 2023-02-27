@@ -22,7 +22,9 @@ function DrinkCardDetails(props) {
 
 	const getDrinkDetail = async () => {
 		try {
-			const res = await fetch(`https://buildyobar.herokuapp.com/drinks/${id}`);
+			const res = await fetch(
+				`https://buildyourbar.herokuapp.com/drinks/${id}`
+			);
 			const data = await res.json();
 			if (res.status === 200) {
 				setDrink(data);
@@ -34,12 +36,15 @@ function DrinkCardDetails(props) {
 
 	const deleteDrink = async () => {
 		try {
-			const res = await fetch(`https://buildyobar.herokuapp.com/drinks/${id}`, {
-				method: "DELETE",
-				headers: {
-					Authorization: `Token ${localStorage.getItem("token")}`,
-				},
-			});
+			const res = await fetch(
+				`https://buildyourbar.herokuapp.com/drinks/${id}`,
+				{
+					method: 'DELETE',
+					headers: {
+						Authorization: `Token ${localStorage.getItem('token')}`,
+					},
+				}
+			);
 			if (res.status === 204) {
 				navigate("/menu");
 			} else if (res.status === 403 || 401) {
@@ -54,12 +59,12 @@ function DrinkCardDetails(props) {
 		event.preventDefault();
 		const data = { ...newComment, drink_id: id };
 		try {
-			const res = await fetch("https://buildyobar.herokuapp.com/comments/", {
-				method: "POST",
+			const res = await fetch('https://buildyourbar.herokuapp.com/comments/', {
+				method: 'POST',
 				body: JSON.stringify(data),
 				headers: {
-					Authorization: `Token ${localStorage.getItem("token")}`,
-					"Content-Type": "application/json",
+					Authorization: `Token ${localStorage.getItem('token')}`,
+					'Content-Type': 'application/json',
 				},
 			});
 			if (res.status === 200) {

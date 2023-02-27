@@ -39,7 +39,7 @@ function CreateDrink(props) {
 		event.preventDefault();
 		const data = new FormData(event.target);
 		try {
-			const res = await fetch('https://buildyobar.herokuapp.com/drinks/', {
+			const res = await fetch('hhttps://buildyourbar.herokuapp.com/drinks/', {
 				method: 'POST',
 				body: data,
 				headers: {
