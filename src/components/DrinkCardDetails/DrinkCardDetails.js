@@ -81,7 +81,7 @@ function DrinkCardDetails(props) {
 
 	useEffect(() => {
 		getDrinkDetail();
-	}, [drink]);
+	}, []);
 
 	function handleImageError(event) {
 		event.currentTarget.src = "https://i.imgur.com/JNKyLlj.jpg";
@@ -91,7 +91,7 @@ function DrinkCardDetails(props) {
 	const handleShow = () => setShow(true);
 
 	if (!drink) {
-		return <p>Loading Drink...</p>;
+		return <div>Loading Drink...</div>;
 	}
 
 	return (

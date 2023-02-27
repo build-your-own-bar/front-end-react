@@ -1,13 +1,19 @@
 .card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
-	position: relative;
 	background-color: #36383b;
 	color: #e0b751;
-	margin: 5px;
+	font-size: 0.7rem;
+	height: 210px;
 }
 
 .card-container {
 	background-color: #e0b751;
+	width: 150px;
+	height: 250px;
 }
 
 a {
@@ -16,6 +22,35 @@ a {
 
 .card img {
 	object-fit: cover;
-	width: 300px;
-	height: 300px;
+	width: 100px;
+	height: 140px;
+	margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+	.card {
+		text-align: center;
+		position: relative;
+		background-color: #36383b;
+		color: #e0b751;
+		font-size: 1rem;
+		margin: 5px;
+		height: 350px;
+	}
+
+	.card-container {
+		background-color: #e0b751;
+		height: 390px;
+		width: 250px;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.card img {
+		object-fit: cover;
+		width: 200px;
+		height: 240px;
+	}
 }

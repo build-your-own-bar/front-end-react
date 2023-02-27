@@ -1,3 +1,4 @@
+// Dependencies
 import "./App.css";
 import axios from "axios";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
@@ -28,7 +29,6 @@ function App() {
 	const [userId, setUserId] = useState(false);
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
-
 	const [loggedIn, setLoggedIn] = useState(
 		localStorage.getItem("token") ? true : false
 	);
@@ -39,6 +39,7 @@ function App() {
 		setLoggedIn(true);
 	};
 
+	// Get User Info function
 	const getUserInfo = async () => {
 		try {
 			const response = await fetch(baseUrl + "users/me/", {
@@ -62,6 +63,7 @@ function App() {
 		}
 	};
 
+	// Handle logout function
 	const handleLogout = async () => {
 		console.log(localStorage.getItem("token"));
 		try {
@@ -81,12 +83,14 @@ function App() {
 		}
 	};
 
+	// Use Effect for getting user info
 	useEffect(() => {
 		if (loggedIn) {
 			getUserInfo();
 		}
 	}, []);
 
+	// Get Drinks api call function
 	const getDrinks = async () => {
 		try {
 			const res = await axios.get(drinkUrl);
@@ -98,7 +102,7 @@ function App() {
 
 	useEffect(() => {
 		getDrinks();
-	}, [drinks]);
+	}, []);
 
 	return (
 		<div className="App">
